@@ -1,1 +1,6 @@
 declare module 'vue-amap'
+declare module 'qs'
+declare module 'lodash'
+declare module 'downloadjs'
+declare module 'js-cookie'
+declare module './utils/lib'

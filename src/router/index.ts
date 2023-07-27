@@ -68,9 +68,27 @@ const router = createRouter({
         {
           path: '/dynamic-fence',
           name: 'dynamic-fence',
-          meta: { title: 'AMap Demo', cache: false },
+          meta: { title: 'Dynamic Fence', cache: false },
           component: async () => await import('@/views/dynamic-fence/dynamic-fence.vue')
         },
+        {
+          path: '/camera-animation',
+          name: 'camera-animation',
+          meta: { title: 'Camera Animation', cache: false },
+          component: async () => await import('@/views/camera-animation/camera-animation.vue')
+        },
+        {
+          path: '/multiple-light',
+          name: 'multiple-light',
+          meta: { title: 'Multiple Light', cache: false },
+          component: async () => await import('@/views/multiple-light/multiple-light.vue')
+        },
+        {
+          path: '/concurrent-request',
+          name: 'concurrent-request',
+          meta: { title: 'Concurrent Request', cache: false },
+          component: async () => await import('@/views/concurrent-request/concurrent-request.vue')
+        }
     ]
 })
 router.afterEach((to, from) => {

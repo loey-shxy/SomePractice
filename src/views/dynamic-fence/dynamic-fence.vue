@@ -22,7 +22,8 @@ let camera: THREE.PerspectiveCamera,
     texture: THREE.Texture
 
 let paths: number[][][] = []
-const map = shallowRef()
+// 使用 shallowRef() 进行非深度监听，因为在 Vue3 所使用的 Proxy 拦截操作会改变 JS API 原生对象
+const map = shallowRef() 
 
 const height = 50
 const color = '#FFD500'
@@ -228,7 +229,6 @@ const initMap = () => {
   AMapLoader.load({
   key: import.meta.env.VITE_APP_AMAP_KEY,
   version: '2.0',
-  plugins:['AMap.ToolBar','AMap.Scale', 'AMap.MouseTool'],
   AMapUI:{
       version:"1.1",
       plugins:[],
@@ -249,7 +249,7 @@ const initMap = () => {
       pitch: 52,
     });
     
-    map.value?.on('click', (event: any) => {
+    map.value.on('click', (event: any) => {
       const {lng, lat} = event.lnglat
       console.log([lng, lat])
     })

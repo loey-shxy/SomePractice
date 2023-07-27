@@ -4,9 +4,10 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import glsl from 'vite-plugin-glsl'
+import { viteMockServe } from "vite-plugin-mock";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   return {
     plugins: [
@@ -30,6 +31,11 @@ export default defineConfig(({ mode }) => {
         compress: false,
         root: '/'
       }),
+      viteMockServe({
+        mockPath: './src/mock',
+        supportTs: true, // 启用 ts
+        localEnabled: command === 'serve' && mode === 'mock', //在开发环境中启用 mock
+      })
     ],
 
     resolve: {
