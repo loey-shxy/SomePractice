@@ -4,7 +4,7 @@
 <script setup name="multiple-light">
 import { shallowRef, onMounted, ref } from 'vue'
 import AMapLoader from '@amap/amap-jsapi-loader'
-import * as turf from '@/turf/turf'
+import * as turf from '@turf/turf'
 
 const map = shallowRef()
 const time = ref(0)
@@ -34,8 +34,8 @@ const initMap = () => {
       version: '2.0.0'
     }
   }).then((AMap) => {
-    const center = new AMap.LngLat(116.52668, 39.794678)
-    map.value = new AMap.AMap('map', {
+    const center = new AMap.LngLat(106.587798, 29.56681)
+    map.value = new AMap.Map('map', {
       center,
       zoom: 16,
       viewMode: '3D',
@@ -44,72 +44,72 @@ const initMap = () => {
       showBuildingBlock: false
     })
 
-    // addLight(AMap)
+    addLight(AMap)
   })
 }
 
-// const addLight = (AMap) => {
-//   const loca = new Loca.Container({
-//     map: map.value
-//   })
+const addLight = (AMap) => {
+  const loca = new Loca.Container({
+    map: map.value
+  })
 
-//   const ambientLight = new Loca.AmbientLight({
-//     intensity: 0.5,
-//     color: '#fff',
-//   })
-//   pointLight1.value = new Loca.PointLight({
-//     color: 'rgb(11, 255, 241)',
-//     position: [106.588009,29.565426, 0],
-//     intensity: 5,
-//     distance: 500
-//   })
+  const ambientLight = new Loca.AmbientLight({
+    intensity: 0.5,
+    color: '#fff',
+  })
+  pointLight1.value = new Loca.PointLight({
+    color: 'rgb(11, 255, 241)',
+    position: [106.588009,29.565426, 0],
+    intensity: 5,
+    distance: 500
+  })
 
-//   pointLight2.value = new Loca.PointLight({
-//     color: 'rgb(255, 75, 0)',
-//     position: [106.587945,29.565094, 400],
-//     intensity: 10,
-//     distance: 1500
-//   })
+  pointLight2.value = new Loca.PointLight({
+    color: 'rgb(255, 75, 0)',
+    position: [106.587945,29.565094, 400],
+    intensity: 10,
+    distance: 1500
+  })
 
-//   pointLight3.value = new Loca.PointLight({
-//     color: '#f21da7',
-//     position: [106.586894, 29.565477, 400],
-//     intensity: 10,
-//     distance: 1500
-//   })
+  pointLight3.value = new Loca.PointLight({
+    color: '#f21da7',
+    position: [106.586894, 29.565477, 400],
+    intensity: 10,
+    distance: 1500
+  })
 
-//   const lightIcon = new AMap.Icon({
-//     image: 'https://a.amap.com/Loca/static/loca-v2/demos/images/light.png',
-//     imageSize: new AMap.Size(40, 40)
-//   })
+  const lightIcon = new AMap.Icon({
+    image: 'https://a.amap.com/Loca/static/loca-v2/demos/images/light.png',
+    imageSize: new AMap.Size(40, 40)
+  })
 
-//   pointLight1Marker.value = new AMap.Marker({
-//     position: [106.588009,29.565426, 10],
-//     icon: lightIcon,
-//     anchor: 'bottom-center'
-//   })
+  pointLight1Marker.value = new AMap.Marker({
+    position: [106.588009,29.565426, 10],
+    icon: lightIcon,
+    anchor: 'bottom-center'
+  })
 
-//   pointLight2Marker.value = new AMap.Marker({
-//     position: [106.587945,29.565094, 400],
-//     icon: lightIcon,
-//     anchor: 'bottom-center'
-//   })
+  pointLight2Marker.value = new AMap.Marker({
+    position: [106.587945,29.565094, 400],
+    icon: lightIcon,
+    anchor: 'bottom-center'
+  })
 
-//   pointLight3Marker.value = new AMap.Marker({
-//     position: [106.586894, 29.565477, 400]
-//     icon: lightIcon,
-//     anchor: 'bottom-center'
-//   })
+  pointLight3Marker.value = new AMap.Marker({
+    position: [106.586894, 29.565477, 400],
+    icon: lightIcon,
+    anchor: 'bottom-center'
+  })
 
-//   map.value.add(pointLight1Marker.value)
-//   map.value.add(pointLight2Marker.value)
-//   map.value.add(pointLight3Marker.value)
-// }
+  map.value.add(pointLight1Marker.value)
+  map.value.add(pointLight2Marker.value)
+  map.value.add(pointLight3Marker.value)
+}
 
-// const changeLight = () => {
-//   time.value++
-//   // const pos = 
-// }
+const changeLight = () => {
+  time.value++
+  // const pos = 
+}
 </script>
 <style lang="scss" scoped>
   .amap-container {

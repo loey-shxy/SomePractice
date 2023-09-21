@@ -251,7 +251,6 @@ const initMap = () => {
     
     map.value.on('click', (event: any) => {
       const {lng, lat} = event.lnglat
-      console.log([lng, lat])
     })
 
     map.value.add(new AMap.Marker({

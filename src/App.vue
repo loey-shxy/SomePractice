@@ -19,7 +19,8 @@ const menus = [
   { route: 'css-demo', name: 'Css Demo' },
   { route: 'dynamic-fence', name: 'Dynamic Fence' },
   { route: 'camera-animation', name: 'Camera Animation' },
-  { route: 'concurrent-request', name: 'Concurrent' },
+  { route: 'multiple-light', name: 'Multiple Light' },
+  // { route: 'concurrent-request', name: 'Concurrent' },
 ]
 
 const router = useRouter()
